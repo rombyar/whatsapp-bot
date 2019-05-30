@@ -15,10 +15,10 @@ $result = $connect->prepare('SELECT * FROM tb_user');
 $result->execute();
 $countCheck = $result->rowCount();
 if ($countCheck != 0) {
-    while ($res_pic = $result->fetch()) {
-        $message = 'Pesan: *'.$res_pic['name']."*\n";
+    while ($data_row = $result->fetch()) {
+        $message = 'Pesan: *'.$data_row['name']."*\n";
         $my_apikey = 'KEY-APIWHA';
-        $destination = $res_pic['phone'];
+        $destination = $data_row['phone'];
         $message = $message;
         $api_url = 'http://panel.apiwha.com/send_message.php';
         $api_url .= '?apikey='.urlencode($my_apikey);
